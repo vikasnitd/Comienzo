@@ -26,7 +26,7 @@ urlpatterns = [
     # url( r'^password_change_done/',auth_views.PasswordChangeDoneView.as_view(template_name="password_change_done.html")),
     #url(r'password_change_done/',auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html')),
     # url(r'password_change_done/',auth_views.PasswordChangeDoneView.as_view(template_name='password_change_done.html')),)
-    url(r'contents', include('contents.urls')),
+    url(r'^contents/', include('contents.urls')),
     url(r'^user/', include('user.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'', views.home, name = 'home'),

@@ -10,10 +10,14 @@
 		<div class="col-6">
 			<div class="card">
 				<div class="card-body">
-					<h1>Submit Your Thoughts</h1>
+					<h1>Share Your Thoughts</h1>
 					<form method="POST" novalidate="">
 						{% csrf_token %}
-						{{ form|crispy}}
+						{% if edit == 0%}
+							{{form|crispy}}
+						{%else%}
+							{{ form|crispy}}
+						{%endif%}
 						<button type="submit" class="btn btn-outline-primary">Submit</button>
 						{# <a href="{% url 'login'%}" style="margin-left: 5%">Already have account? Log in</a> #}
 					</form>	

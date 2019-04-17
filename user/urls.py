@@ -6,5 +6,4 @@ from . import views
 
 urlpatterns = [
     url(r'signup/', views.signup, name='signup'),
-    # url(r'sex/', views.sex, name = 'sex'),
 ]
