@@ -7,6 +7,32 @@
 
 {% endblock %}
  {% block content%}
- 	<p>hello {{ user.username }}!</p>
+ 	<form class="form-inline my-2 my-lg-0">
+ 		{% if user.is_authenticated %}
+ 			<a href="{% url 'form'%}" class="btn btn-outline-primary">hello {{user.username}}!, Want to post your thoughts?</a>
+ 		{% else %}
+ 			<a href="{% url 'signup' %}" class="btn btn-outline-primary"> Want to post your thoughts? </a>
+ 		{%endif%}
+ 	</form>
+
+ 	
+    {% for item in thougths %}
+    	<br>
+    	<div class="card">
+		  <h5 class="card-header"><span>{{ item.title }}</h5>
+		  <div class="card-body">
+		    <!-- <h5 class="card-title">Special title treatment</h5> -->
+		    <p class="card-text">{{ item.description }}</p>
+		    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+		  </div>
+
+		    <small style="margin-bottom: 4px;margin-left: 10px">posted by : {{ item.user }} on {{ item.pub_date}}</small>
+		</div>
+
+    		<!-- <li>{{ item.user }}</li> -->
+    		<!-- <li>{{ item.pub_date }}</li> -->
+		
+    {% endfor %}
+
  {% endblock %}
 
