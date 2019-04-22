@@ -14,6 +14,17 @@ def home(request):
 
 	return render(request, 'contents/home.html', {'thougths': thougths})
 
+
+def latestblog(request):
+
+	thougths = list(message.objects.order_by('-pub_date'))
+	len1 = min(5, len(thougths));
+	list1 = []
+	for i in range(1, len1+1):
+		list1.append(thougths[i-1])
+
+	return render(request, 'contents/latestblog.html', {'thougths': list1 })
+
 @login_required
 def myblog(request):
 
